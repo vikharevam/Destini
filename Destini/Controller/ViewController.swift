@@ -10,40 +10,40 @@ import UIKit
 class ViewController: UIViewController {
     
     
-    @IBOutlet weak var qwestDialog: UILabel!
-    @IBOutlet weak var optionOne: UIButton!
-    @IBOutlet weak var optionTwo: UIButton!
+    @IBOutlet weak var storyTitle: UILabel!
+    @IBOutlet weak var buttonChoiceOne: UIButton!
+    @IBOutlet weak var buttonChoiceTwo: UIButton!
+    
     
     var storyBrain = StoryBrain()
     
-    
-    
     override func viewDidLoad() {
-        super.viewDidLoad()
+        
+        
         
         updateUI()
-        // Do any additional setup after loading the view.
-        
-        
-        func updateUI() {
-            qwestDialog.text = storyBrain.getStoriesTitle()
-            
-            
-            
-        }
-        
-        
-        
-        
         
         
     }
     
     
+    @IBAction func choiceMade(_ sender: UIButton) {
+        
+        let userChoise = (sender.titleLabel?.text)
+        storyBrain.nextStory(userChoice: userChoise ?? "no data")
+        
+        updateUI()
+        
+    }
     
-    
-    
-    
-    
+    func updateUI(){
+        
+        storyTitle.text = storyBrain.getStoriesTitle()
+        
+        buttonChoiceOne.setTitle(storyBrain.getChoice1(), for: .normal)
+        buttonChoiceTwo.setTitle(storyBrain.getChoice2(), for: .normal)
+        
+        
+    }
     
 }

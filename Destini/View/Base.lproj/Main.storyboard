@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,38 +17,46 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="l55-0H-lAf">
-                                <rect key="frame" x="0.0" y="-12" width="375" height="836"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="l55-0H-lAf">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="gDt-0y-wvv">
-                                <rect key="frame" x="60" y="628" width="255" height="120"/>
+                                <rect key="frame" x="60" y="588" width="255" height="160"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ApM-R3-X8k">
-                                        <rect key="frame" x="0.0" y="0.0" width="255" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="255" height="70"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="4E5-Vl-GHD"/>
+                                            <constraint firstAttribute="height" constant="70" id="4E5-Vl-GHD"/>
                                         </constraints>
-                                        <color key="tintColor" red="0.92156620219999996" green="0.66468502920000005" blue="0.2451611212" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Вариант 1 "/>
+                                        <state key="normal" title="Button" backgroundImage="choice1Background"/>
+                                        <connections>
+                                            <action selector="choiceMade:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XXd-u3-elr"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uJ5-JC-4IC">
-                                        <rect key="frame" x="0.0" y="70" width="255" height="50"/>
+                                        <rect key="frame" x="0.0" y="90" width="255" height="70"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="yry-aO-PWh"/>
+                                            <constraint firstAttribute="height" constant="70" id="yry-aO-PWh"/>
                                         </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Вариант 2"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Button" backgroundImage="choice2Background"/>
+                                        <connections>
+                                            <action selector="choiceMade:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pyX-Hr-SU1"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Здесь будет отображаться текст квеста, а внизу необходимо будет выбирать дейсвие по ситуации" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rIG-xw-WmD">
-                                <rect key="frame" x="35" y="207" width="305" height="179.33333333333337"/>
-                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="25"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Здесь будет отображаться текст квеста, а внизу необходимо будет выбирать дейсвие по ситуации" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="rIG-xw-WmD">
+                                <rect key="frame" x="35" y="200" width="305" height="242.33333333333337"/>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="29"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -56,17 +65,21 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="gDt-0y-wvv" secondAttribute="bottom" constant="30" id="0Bw-uq-3Il"/>
                             <constraint firstItem="rIG-xw-WmD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="35" id="Aq8-Ke-vhZ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rIG-xw-WmD" secondAttribute="trailing" constant="35" id="Ivd-OJ-G2D"/>
-                            <constraint firstItem="rIG-xw-WmD" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="160" id="KU7-JD-trC"/>
+                            <constraint firstItem="rIG-xw-WmD" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="150" id="KU7-JD-trC"/>
+                            <constraint firstItem="l55-0H-lAf" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="MmW-16-dEK"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gDt-0y-wvv" secondAttribute="trailing" constant="60" id="O3H-6d-jTr"/>
-                            <constraint firstItem="gDt-0y-wvv" firstAttribute="top" relation="greaterThanOrEqual" secondItem="rIG-xw-WmD" secondAttribute="bottom" constant="30" id="bvU-45-Kdi"/>
+                            <constraint firstItem="l55-0H-lAf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ZVe-VO-wHh"/>
+                            <constraint firstItem="gDt-0y-wvv" firstAttribute="top" relation="greaterThanOrEqual" secondItem="rIG-xw-WmD" secondAttribute="bottom" constant="20" id="bvU-45-Kdi"/>
+                            <constraint firstAttribute="bottom" secondItem="l55-0H-lAf" secondAttribute="bottom" id="eHb-KM-bfO"/>
                             <constraint firstItem="gDt-0y-wvv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="iBy-B6-GsS"/>
+                            <constraint firstItem="l55-0H-lAf" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="izR-Bm-FRA"/>
                             <constraint firstItem="rIG-xw-WmD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uFv-6U-w8A"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="optionOne" destination="ApM-R3-X8k" id="E9L-QC-9JN"/>
-                        <outlet property="optionTwo" destination="uJ5-JC-4IC" id="0dK-7M-ouH"/>
-                        <outlet property="qwestDialog" destination="rIG-xw-WmD" id="efE-eq-Vma"/>
+                        <outlet property="buttonChoiceOne" destination="ApM-R3-X8k" id="Y5n-gs-waT"/>
+                        <outlet property="buttonChoiceTwo" destination="uJ5-JC-4IC" id="Ctb-xR-9uK"/>
+                        <outlet property="storyTitle" destination="rIG-xw-WmD" id="Mxw-dk-G9I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -76,6 +89,8 @@
     </scenes>
     <resources>
         <image name="background" width="958" height="1793"/>
+        <image name="choice1Background" width="1370.6666259765625" height="363"/>
+        <image name="choice2Background" width="1370.6666259765625" height="363"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

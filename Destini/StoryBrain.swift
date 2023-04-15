@@ -2,54 +2,74 @@
 //  StoryBrain.swift
 //  Destini
 //
-//  Created by Александр Вихарев on 09.02.2023.
+//  Created by Александр Вихарев on 15.04.2023.
 //
 
 import Foundation
 
-
-
 struct StoryBrain {
-    
     var storyNumber = 0
-    
-    let stories = [
-        Story(
-            title: "Your car has blown a tire on a winding road in the middle of nowhere with no cell phone reception. You decide to hitchhike. A rusty pickup truck rumbles to a stop next to you. A man with a wide brimmed hat with soulless eyes opens the passenger door for you and asks: 'Need a ride, boy?'.",
-            choice1: "I'll hop in. Thanks for the help!", choice1Destination: 2,
-            choice2: "Better ask him if he's a murderer first.", choice2Destination2: 1
-        ),
-        Story(
-            title: "He nods slowly, unfazed by the question.",
-            choice1: "At least he's honest. I'll climb in.", choice1Destination: 2,
-            choice2: "Wait, I know how to change a tire.", choice2Destination2: 3
-        ),
-        Story(
-            title: "As you begin to drive, the stranger starts talking about his relationship with his mother. He gets angrier and angrier by the minute. He asks you to open the glovebox. Inside you find a bloody knife, two severed fingers, and a cassette tape of Elton John. He reaches for the glove box.",
-            choice1: "I love Elton John! Hand him the cassette tape.", choice1Destination: 5,
-            choice2: "It's him or me! You take the knife and stab him.", choice2Destination2: 4
-        ),
-        Story(
-            title: "What? Such a cop out! Did you know traffic accidents are the second leading cause of accidental death for most adult age groups?",
-            choice1: "The", choice1Destination: 0,
-            choice2: "End", choice2Destination2: 0
-        ),
-        Story(
-            title: "As you smash through the guardrail and careen towards the jagged rocks below you reflect on the dubious wisdom of stabbing someone while they are driving a car you are in.",
-            choice1: "The", choice1Destination: 0,
-            choice2: "End", choice2Destination2: 0
-        ),
-        Story(
-            title: "You bond with the murderer while crooning verses of 'Can you feel the love tonight'. He drops you off at the next town. Before you go he asks you if you know any good places to dump bodies. You reply: 'Try the pier.'",
-            choice1: "The", choice1Destination: 0,
-            choice2: "End", choice2Destination2: 0
-        )
+    let storiesArray = [Story(title: "Вы видите развилку на дороге и теперь Вам нужно решить куда дальше следовать",//0
+                              choice1: "Пойти налево",
+                              choice1distantion: 1,
+                              choice2: "Пойти направо",
+                              choice2distantion: 3),
+                        Story(title: "Вы видите тигра, он явно зол и голоден. Очень голоден...", //1
+                              choice1: "Убежать",
+                              choice1distantion: 5,
+                              choice2: "Попробовать напасть",
+                              choice2distantion: 2 ),
+                        Story(title: "Вы отчаянно боролись и даже взяли тигра \"на прогиб\", но он все-же съел Вас",//2
+                              choice1: "Конец",
+                              choice1distantion: 0,
+                              choice2: "Конец",
+                              choice2distantion: 0),
+                        Story(title: "Вы нашли сундук, выглядит он очень \"дорого-богато\", но на нем табличка \"не открывать!!!\"", //3
+                              choice1: "Открыть",
+                              choice1distantion: 4,
+                              choice2: "Уйти",
+                              choice2distantion: 0),
+                        Story(title: "Ого, столько золота! Жаль теперь придется платить налог Султану", //4
+                              choice1: "Урааа, конец",
+                              choice1distantion: 0,
+                              choice2: "конец, ураааа",
+                              choice2distantion: 0),
+                        Story(title: "Тигр догнал и съел Вас. \n\n\n\nОчень жаль", //5
+                              choice1: "Аааа, конец",
+                              choice1distantion: 0,
+                              choice2: "конец, аааа",
+                              choice2distantion: 0)
     ]
     
-    func getStoriesTitle() -> String {
-        return stories[storyNumber].title
+    mutating func nextStory(userChoice: String ) {
+        
+        if userChoice == storiesArray[storyNumber].choice1 {
+            storyNumber = storiesArray[storyNumber].choice1distantion
+            
+        } else if userChoice == storiesArray[storyNumber].choice2 {
+            storyNumber = storiesArray[storyNumber].choice2distantion
+        }
+        
+        
+        
     }
     
+    func getStoriesTitle() -> String {
+        return storiesArray[storyNumber].title
     
+    }
     
+    func getChoice1() -> String {
+        return storiesArray[storyNumber].choice1
+        
+    }
+    
+    func getChoice2() -> String {
+        return storiesArray[storyNumber].choice2
+    }
 }
+
+
+
+
+
